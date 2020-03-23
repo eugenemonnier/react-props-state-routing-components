@@ -20,27 +20,26 @@ class Form extends React.Component {
       url: this.state.url,
       method: method
     })
-    console.log(res)
     
     let content = Content.TEXT
 
     if (res.headers['content-type']) {
       switch (res.headers['content-type'].toLowerCase()) {
-        case 'application/json': content = Content.JSON; console.log(content);
-         break
+        case 'application/json': content = Content.JSON; break
         case 'text/html': content = content.HTML; break
         default: content = null
       }
     }
-    console.log(res.data)
+    const results = {
+      headers: res.headers,
+      data: res.data
+    }
     
-    this.props.handler(res.data, content)
+    this.props.handler(results, content)
   }
 
   changeHandler = (event) => {
     this.setState({ url: event.target.value })
-    console.log(event.target.value);
-    
   }
 
   render() {

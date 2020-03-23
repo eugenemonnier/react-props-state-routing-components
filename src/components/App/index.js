@@ -8,8 +8,9 @@ class App extends React.Component {
     super()
     this.state = {
       data: null,
+      headers: 'null',
       type: null,
-      expandTo: 1
+      expandTo: 2
     }
   }
 

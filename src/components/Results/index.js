@@ -3,6 +3,7 @@ import { Content } from '../Form'
 import ReactJSON from 'react-json-view'
 
 class Results extends React.Component {
+  
   renderType = () => {
     switch (this.props.type) {
       case Content.HTML: return <iframe title='results'>{this.props.data}</iframe>
